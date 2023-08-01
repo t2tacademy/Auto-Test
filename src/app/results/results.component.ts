@@ -111,25 +111,25 @@ export class ResultsComponent implements OnInit {
   }
   selectRecommendation() {
     if (this.average < 4) {
-      this.recommendation = 'No debes preocuparte, el 70% de los jóvenes profesionales no detectaron que debían entrenar estas habilidades. Debes comenzar a trabajar tus habilidades, agrupándolas y dedicándoles un tiempo de 1 hora por semana. Escribinos a @t2tscacademy@gmail.com y armamos juntos tu plan de entrenamiento personalizado.';
+      this.recommendation = 'No debes preocuparte, el 70% de los jóvenes profesionales no detectaron que debían entrenar estas habilidades. Debes comenzar a trabajar tus habilidades, agrupándolas y dedicándoles un tiempo de 1 hora por semana. Escribinos a t2tscacademy@gmail.com y armamos juntos tu plan de entrenamiento personalizado.';
     } else if (this.average < 5) {
       this.recommendation = 'Estas casi bien para tu edad. No debes preocuparte, pero ' +
           'estas justo para comenzar un desarrollo exponencial de cada una de ellas. El tiempo ' +
           'que necesites estará entre 30-60 minutos por semana. Comenzar con las que te dieron ' +
-          'más baja. Escribinos a @t2tscacademy@gmail.com y armamos juntos tu plan de ' +
+          'más baja. Escribinos a t2tscacademy@gmail.com y armamos juntos tu plan de ' +
           'entrenamiento personalizado.';
     } else if (this.average < 7) {
       this.recommendation = 'Estas dentro del 15% de las jóvenes profesiones que ' +
           'tienen muchas chances de ser un profesional diferente. Debes seguir mejorando, te ' +
           'dará muchas oportunidades de destaque y de crecimiento. Con 30 minutos por ' +
-          'semana tu desarrollo será muy alto. Escribinos a @t2tscacademy@gmail.com y ' +
+          'semana tu desarrollo será muy alto. Escribinos a t2tscacademy@gmail.com y ' +
           'armamos juntos tu plan de entrenamiento personalizado.';
     } else {
       this.recommendation = 'Eres increíble profesional. Muchísimo potencial. Ya piensas ' +
           'como un directivo. No debes dejar de evolucionar, claramente hay mucho por ' +
           'descubrir en tu personalidad. Debes desarrollar un plan de aprendizaje en tips y ' +
           'consejos que adquisición de habilidades. Tremendo desafío. Escribinos a ' +
-          '@t2tscacademy@gmail.com y armamos juntos tu plan de entrenamiento ' +
+          't2tscacademy@gmail.com y armamos juntos tu plan de entrenamiento ' +
           'personalizado bien desafiante.';
     }
   }
