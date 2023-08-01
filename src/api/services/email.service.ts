@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
@@ -35,6 +36,9 @@ export class EmailService {
         url += '?email_to=' + encodeURIComponent(userEmail);
         url += '&recommendation=' + encodeURIComponent(recommendation);
         url += '&image_url=' + encodeURIComponent(image_url);
+        url += '&api_token=' + encodeURIComponent(environment.apiKey);
+
+
         return this.http.get(url).subscribe();
     }
 
