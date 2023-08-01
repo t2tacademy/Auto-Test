@@ -1,5 +1,5 @@
 <div style="height: 100%; width: 100%; align-items: center; justify-content: center; ">
-    <div style="height: 90%; justify-content: space-around; align-items: center;">
+    <div style=" justify-content: space-around; align-items: center;">
         <h1 style=" text-align: center">¡Tus resultados!</h1>
         <h4 style=" text-align: center">{{average}} de 10</h4>
         <div>
@@ -16,19 +16,20 @@
                         [dataLabels]="chartOptions.dataLabels"
                 ></apx-chart>
             </div>
+            <div style="display: flex; width: 100%; justify-content: center; align-items: center" class="text-center" >
+                <div>
+                    <a  href="https://t2tacademy.teachable.com/" target="_blank" class="btn btn-info btn-icon mb-sm-0" style="background-color: #6AA54C; border-color: #6AA54C; border-radius: 20px;">
+                        <span class="btn-inner--icon"><img src="./assets/img/brand/t2t-square.png"></span>
+                        <span class="btn-inner--text">quiero mejorar</span>
+                    </a>
+                </div>
+            </div>
             <p class="lead  text-t2t-blue" style=" text-align: center"><strong>Recomendación:</strong></p>
             <p class="lead  text-t2t-blue" style=" text-align: center; margin-right: 5%; margin-left: 5%">{{recommendation}}</p>
 
         </div>
 
     </div>
-    <div style="display: flex; width: 100%;height: 10%; justify-content: center; align-items: center" class="text-center" >
-        <div>
-            <a  href="https://t2tacademy.teachable.com/" target="_blank" class="btn btn-info btn-icon mb-sm-0" style="background-color: #6AA54C; border-color: #6AA54C; border-radius: 20px;">
-            <span class="btn-inner--icon"><img src="./assets/img/brand/t2t-square.png"></span>
-            <span class="btn-inner--text">quiero mejorar</span>
-        </a>
-        </div>
-    </div>
+
 
 </div>

@@ -4,3 +4,12 @@
     justify-content: center;
     height: 100%;
 }
+.top-image-container{
+    /* Set the background image */
+    background-image: url('../../assets/img/theme/welcome.jpg');
+
+    /* Set the background size and position */
+    background-size: cover;
+    background-position: center;
+    height: 20vh; /* 50% of the viewport height */
+}

@@ -166,6 +166,7 @@ export class QuestionsComponent implements OnInit {
       this.isButtonDisabled = true;
       this.currentlyClickedCardIndex = null;
       this.question_iterator += 1;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         this.points.push(this.getCardValue(this.currentlyClickedCardIndex));
         this.fillData();
