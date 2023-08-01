@@ -1,0 +1,21 @@
+
+/* Add these styles to align the h6 and p elements beside each other */
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Optional: Add margin to separate h6 and p elements */
+.mr-3 {
+    margin-right: 0.75rem;
+}
+
+
+
+.btn-inner--text{
+    color: white;
+}
+

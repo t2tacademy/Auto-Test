@@ -1,0 +1,27 @@
+
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: clip;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    justify-content: center;
+}
+.card-content {
+    display: flex;
+    padding: 16px;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Style to apply when the card is clicked */
+.card-clicked {
+    background-color: #EDFFD7;
+    color: #0E194D ;
+
+}

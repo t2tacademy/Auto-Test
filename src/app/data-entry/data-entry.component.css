@@ -1,0 +1,38 @@
+.top-image-container{
+    /* Set the background image */
+    background-image: url('../../assets/img/theme/desk.png');
+
+    /* Set the background size and position */
+    background-size: cover;
+    background-position: center;
+    height: 20vh; /* 50% of the viewport height */
+}
+
+.image-t2t{
+    display: flex;
+    width: 30%;
+    border-radius: 50% !important;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+}
+.image-t2t-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: -50px;
+}
+
+.container-form{
+    padding: 5px 5px;
+    width: 70%;
+    max-width: 600px;
+}
+.center-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}

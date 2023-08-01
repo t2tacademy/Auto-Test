@@ -1,0 +1,6 @@
+<div class="card"  [ngClass]="{ 'card-clicked': isCardClicked }" (click)="toggleCardColor()">
+    <div class="card-content" >
+        <h6 class="text-primary text-uppercase" style="margin-right: 10px">{{toRoman(i)}} </h6>
+        <p class="description">{{answer}} </p>
+    </div>
+</div>

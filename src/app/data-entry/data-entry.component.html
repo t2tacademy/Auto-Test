@@ -1,0 +1,51 @@
+<main>
+    <div class="top-image-container"></div>
+    <div class="image-t2t-container">
+        <img src="./assets/img/brand/t2t-square.png" class="image-t2t">
+    </div>
+    <div class="text-center text-muted mb-4">
+        <h4 class="h1 text-t2t-green" style="font-weight: bold;">academy</h4>
+    </div>
+    <div class="center-form">
+        <div class="container-form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
+                        <input
+                                class="form-control"
+                                placeholder="Email"
+                                type="email"
+                                formControlName="email"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <input
+                                class="form-control"
+                                placeholder="Nombre"
+                                type="text"
+                                formControlName="nombre"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <input
+                                class="form-control"
+                                placeholder="Edad"
+                                type="number"
+                                formControlName="edad"
+                        />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4" [disabled]="isButtonDisabled">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</main>
