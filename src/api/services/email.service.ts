@@ -18,7 +18,7 @@ export class EmailService {
         url += '&recommendation=' + encodeURIComponent(recommendation);
         url += '&image_url=' + encodeURIComponent(image_url);
         url += '&api_token=' + encodeURIComponent(environment.apiKey);
-
+        // log the url
         console.log(url);
         return this.http.get(url).subscribe();
     }
