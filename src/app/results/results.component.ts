@@ -1,21 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import { ViewChild } from '@angular/core';
+import domtoimage from 'dom-to-image';
+
 import {
   ApexAxisChartSeries,
-  ApexTitleSubtitle,
   ApexChart,
   ApexXAxis,
   ApexFill,
-  ChartComponent,
   ApexStroke,
-  ApexMarkers, ApexLegend, ApexDataLabels, ApexYAxis
+  ApexMarkers, ApexLegend, ApexDataLabels, ApexYAxis,
 } from 'ng-apexcharts';
-import _default from 'chart.js/dist/plugins/plugin.legend';
-import labels = _default.defaults.labels;
-import {style} from '@angular/animations';
-import position = _default.defaults.position;
-import {ActivatedRoute} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmailService} from '../../api/services/email.service';
 export interface ChartOptions {
   dataLabels: ApexDataLabels;
@@ -38,12 +32,15 @@ export class ResultsComponent implements OnInit {
   constructor(private emailService: EmailService) {
   }
 
-  @ViewChild('chart') chart: ChartComponent;
+  @ViewChild('chart') chartRef: ElementRef;
   public chartOptions: Partial<ChartOptions>;
   average = 0;
   name: string;
   data: number[];
   recommendation: string;
+  src: string;
+
+
   ngOnInit(): void {
     this.average = Number(localStorage.getItem('average'));
     this.name = localStorage.getItem('name');
@@ -71,6 +68,7 @@ export class ResultsComponent implements OnInit {
 
       ],
       chart: {
+        id: 'chart1',
         // height: '100vh',
         type: 'radar',
         dropShadow: {
@@ -105,10 +103,37 @@ export class ResultsComponent implements OnInit {
       }
     };
     this.selectRecommendation();
-    // this.emailService.sendEmail(this.recommendation, 'image');
-    this.emailService.sendEmailAppsScript(this.recommendation, 'image');
+    this.emailService.sendEmailAppsScript(this.recommendation, this.src, this.data[0], this.data[1], this.data[2],
+        this.data[3], this.data[4], this.data[5], this.data[6], this.data[7], this.data[8], this.data[9]);
+    // this.generateImage();
+
 
   }
+  generateImage() {
+    // Get the DOM element for which you want to generate the image
+    const element = document.getElementById('chart');
+
+    setTimeout(() => {
+      // Code to be executed after 3 seconds
+      // Generate the image
+      domtoimage.toPng(element).then(async (dataUrl) => {
+        // Do something with the generated image data URL
+        // For example, you can create an image element and set the src attribute to the data URL
+        const image = new Image();
+        image.src = dataUrl;
+        this.src = dataUrl.toString();
+        // console.log(this.src);
+        await this.emailService.sendEmailAppsScript(this.recommendation, this.src, this.data[0], this.data[1], this.data[2],
+            this.data[3], this.data[4], this.data[5], this.data[6], this.data[7], this.data[8], this.data[9]);
+
+        // You can also use the data URL to download the image or perform other actions
+      }).catch((error) => {
+        console.error('Error generating image:', error);
+      });
+    }, 3000);
+  }
+
+
   selectRecommendation() {
     if (this.average < 4) {
       this.recommendation = 'No debes preocuparte, el 70% de los jóvenes profesionales no detectaron que debían entrenar estas habilidades. Debes comenzar a trabajar tus habilidades, agrupándolas y dedicándoles un tiempo de 1 hora por semana. Escribinos a t2tscacademy@gmail.com y armamos juntos tu plan de entrenamiento personalizado.';
