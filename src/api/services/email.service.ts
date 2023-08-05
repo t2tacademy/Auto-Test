@@ -20,8 +20,11 @@ export class EmailService {
         critico: number, transmision: number,
         creatividad: number, problemas: number,
         tiempo: number, desarrollo: number) {
-        // console.log(image_data);
-        let url = 'https://script.google.com/macros/s/AKfycbw5iDGyFqGHEmsgIVn76s-eVag4hRmjYe9AE8XqBlRcLWLvtSchLWvtLoJ0ftl5hsqE/exec';
+        // mine ->
+        // let url = 'https://script.google.com/macros/s/AKfycbw5iDGyFqGHEmsgIVn76s-eVag4hRmjYe9AE8XqBlRcLWLvtSchLWvtLoJ0ftl5hsqE/exec';
+
+        // t2t ->
+        let url = 'https://script.google.com/macros/s/AKfycbzy1LEaXFhUh3yYKRQA3NMQIhm3w4lXJxA79bD6NaGic9ap4voX4jKd64gHqf-3og_70Q/exec';
         const userEmail = localStorage.getItem('email');
         const userName = localStorage.getItem('name');
         const userAge = localStorage.getItem('edad');
