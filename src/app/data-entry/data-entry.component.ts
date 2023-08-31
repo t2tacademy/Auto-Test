@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-data-entry',
@@ -11,6 +12,7 @@ export class DataEntryComponent implements OnInit {
 
   form: FormGroup;
   isButtonDisabled = true;
+  wrongpass = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
@@ -19,6 +21,7 @@ export class DataEntryComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       nombre: ['', Validators.required],
       edad: ['', [Validators.required, Validators.min(16)]],
+      contrasena: ['', [Validators.required]],
     });
     // Subscribe to form value changes to update the button state
     this.form.valueChanges.subscribe(() => {
@@ -27,7 +30,15 @@ export class DataEntryComponent implements OnInit {
   }
 
   // Function to handle form submission
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
+    const sha1 = await this.sha1(this.form.get('contrasena').value);
+    if (!(sha1 === environment.pass)) {
+      console.log('wrong paass');
+      this.wrongpass = true;
+      localStorage.setItem('loggedIn', String(false));
+      return ;
+    }
+    this.wrongpass = false;
     if (this.form.valid) {
       // Access the form values here
       const email = this.form.get('email').value;
@@ -38,10 +49,18 @@ export class DataEntryComponent implements OnInit {
       localStorage.setItem('email', email);
       localStorage.setItem('name', nombre);
       localStorage.setItem('edad', edad);
+      localStorage.setItem('loggedIn', String(true));
 
       // Navigate to the questions page
       this.router.navigate(['/questions']);
     }
+  }
+  async sha1(str) {
+    const enc = new TextEncoder();
+    const hash = await crypto.subtle.digest('SHA-1', enc.encode(str));
+    return Array.from(new Uint8Array(hash))
+        .map(v => v.toString(16).padStart(2, '0'))
+        .join('');
   }
 
 }

@@ -158,7 +158,10 @@ export class QuestionsComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.question_iterator = 0;
+    if (!(localStorage.getItem('loggedIn') === 'true')) {
+        this.router.navigate(['/data-entry']);
+    }
+    this.question_iterator = 0;
   }
   next() {
     if ( this.question_iterator < this.questions.length - 1) {

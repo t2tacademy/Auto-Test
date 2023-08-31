@@ -11,6 +11,7 @@ import {
   ApexMarkers, ApexLegend, ApexDataLabels, ApexYAxis,
 } from 'ng-apexcharts';
 import {EmailService} from '../../api/services/email.service';
+import {Router} from '@angular/router';
 export interface ChartOptions {
   dataLabels: ApexDataLabels;
   legend: ApexLegend;
@@ -29,7 +30,8 @@ export interface ChartOptions {
 })
 export class ResultsComponent implements OnInit {
 
-  constructor(private emailService: EmailService) {
+  constructor(private emailService: EmailService,
+              private router: Router) {
   }
 
   @ViewChild('chart') chartRef: ElementRef;
@@ -42,6 +44,9 @@ export class ResultsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if (!(localStorage.getItem('loggedIn') === 'true')) {
+      this.router.navigate(['/data-entry']);
+    }
     this.average = Number(localStorage.getItem('average'));
     this.name = localStorage.getItem('name');
     const dataString = localStorage.getItem('data');
